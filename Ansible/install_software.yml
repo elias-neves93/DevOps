@@ -1,8 +1,0 @@
----
-- hosts: hmg-noc
-remote_user: elias.neves
-tasks:
-     - name: "Instalando Agente Zabbix!"
-          apt: name={{ item }} state=present
-          with_items:
-               - zabbix-agent

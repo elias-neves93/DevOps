@@ -1,0 +1,9 @@
+---
+- hosts: hmg-noc
+  remote_user: elias.neves
+  tasks:
+     - name: "Removendo Agente Zabbix!"
+       yum:
+         name: zabbix-agent
+         state: absent
+       become: true

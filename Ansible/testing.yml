@@ -1,0 +1,39 @@
+---
+- hosts: hmg-noc
+  remote_user: elias.neves
+
+  tasks:
+  - name: "Instalando Agente Zabbix!"
+    yum:
+      name: zabbix-agent
+      state: present
+    become: true
+
+  - name: "Subindo o Agente e colocando no startup do host"
+    systemd:
+      name: zabbix-agent
+      state: started
+      enabled: yes
+    become: true
+
+  #     - name: "Criando arquivo UserParameter e o script"
+  #       file: path=/srv/mongodb.sh state=touch owner=root group=root mode=0777
+  #       file: path=/etc/zabbix/zabbix_agentd.d/userparameter_mongodb.conf state=touch owner=root group=root mode=0777
+  #       become: true
+
+  - name: "Copiando arquivo de configuração do Agente"
+    copy:
+      src: files/zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
+    become: true
+
+  - name: "Adicionando informações nos arquivos."
+    copy:
+      src: files/mongodb.sh
+      dest: /srv/mongodb.sh
+
+  - name: "Adicionando informações nos arquivos."
+    copy:
+      src: files/userparameter_mongodb.conf
+      dest: /etc/zabbix/zabbix_agentd.d/userparameter_mongodb.conf
+    become: true

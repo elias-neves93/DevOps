@@ -1,0 +1,13 @@
+# This is a config file for the Zabbix agent daemon (Unix)
+# To get more information about Zabbix, visit http://www.zabbix.com
+
+PidFile=/var/run/zabbix/zabbix_agentd.pid
+LogFile=/var/log/zabbix-agent/zabbix_agentd.log
+LogFileSize=1
+
+Server={{ server_list }}
+
+ListenPort=10050
+ServerActive=172.16.65.100
+Hostname=$(hostname)
+Include=/etc/zabbix/zabbix_agentd.conf.d/*.conf

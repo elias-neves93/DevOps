@@ -1,5 +1,5 @@
 ---
-- hosts: 10.0.94.50
+- hosts: 10.0.94.50,10.0.94.51,10.0.94.52
   remote_user: elias.neves
   become: true
 
@@ -7,10 +7,14 @@
     server_list: "172.16.65.100,172.16.65.102,172.16.65.103,172.16.65.108"
 
   tasks:
-  - name: Instalando Agente Zabbix
+  - name: Instalando Agente Zabbix e JQ
     yum:
       name: zabbix-agent
       state: present
+
+      name: jq
+      state: present
+
 
   - name: "Subindo o Agente e colocando no startup do host"
     service:
@@ -35,3 +39,8 @@
     copy:
       src: files/userparameter_mongodb.conf
       dest: /etc/zabbix/zabbix_agentd.d/userparameter_mongodb.conf
+
+  - name: "Restarting AGENTE"
+    service:
+      name: zabbix-agent
+      state: restarted

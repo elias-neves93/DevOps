@@ -1,5 +1,5 @@
 ---
-- hosts: hmg-noc
+- hosts: 10.0.94.50,10.0.94.51,10.0.94.52
   remote_user: elias.neves
   tasks:
      - name: "Removendo Agente Zabbix!"

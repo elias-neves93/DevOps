@@ -1,13 +1,19 @@
-# This is a config file for the Zabbix agent daemon (Unix)
-# To get more information about Zabbix, visit http://www.zabbix.com
-
-PidFile=/var/run/zabbix/zabbix_agentd.pid
-LogFile=/var/log/zabbix-agent/zabbix_agentd.log
-LogFileSize=1
-
-Server={{ server_list }}
-
+AllowRoot=0
+BufferSend=5
+BufferSize=100
+DebugLevel=3
+EnableRemoteCommands=1
+Hostname="{{ansible_hostname}}"
+Include=/etc/zabbix/zabbix_agentd.d
+ListenIP=0.0.0.0
 ListenPort=10050
-ServerActive=172.16.65.100
-Hostname=$(hostname)
-Include=/etc/zabbix/zabbix_agentd.conf.d/*.conf
+LogFile=/var/log/zabbix/zabbix_agentd.log
+LogFileSize=1024
+LogRemoteCommands=0
+MaxLinesPerSecond=100
+PidFile=/var/run/zabbix/zabbix_agentd.pid
+RefreshActiveChecks=120
+Server=172.16.65.100
+StartAgents=3
+Timeout=3
+UnsafeUserParameters=0

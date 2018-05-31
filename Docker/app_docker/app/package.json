@@ -1,0 +1,15 @@
+{
+  "name": "Aplicação",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.3",
+    "marko": "^4.4.21",
+    "mongoose": "^4.11.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}

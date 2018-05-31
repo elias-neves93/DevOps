@@ -1,0 +1,64 @@
+version: '3'
+services:
+  nginx:
+#    build:
+#      dockerfile: ./nginx-app-book/Dockerfile
+#      context: .
+    image: eneves/nginx-book:1.0
+    container_name: nginx
+    ports:
+      - "80:80"
+    networks:
+      - production-network
+    depends_on:
+      - "app1"
+      - "app2"
+      - "app3"
+
+  mongodb:
+    image: mongo
+    networks:
+      - production-network
+
+  app1:
+    build:
+      dockerfile: ./app/Dockerfile
+      context: .
+    image: eneves/app-book:2.0
+    container_name: application1
+    ports:
+      - "3000"
+    networks:
+      - production-network
+    depends_on:
+      - "mongodb"
+
+  app2:
+    build:
+      dockerfile: ./app/Dockerfile
+      context: .
+    image: eneves/app-book:2.0
+    container_name: application2
+    ports:
+      - "3000"
+    networks:
+      - production-network
+    depends_on:
+      - "mongodb"
+
+  app3:
+    build:
+      dockerfile: ./app/Dockerfile
+      context: .
+    image: eneves/app-book:2.0
+    container_name: application3
+    ports:
+      - "3000"
+    networks:
+      - production-network
+    depends_on:
+      - "mongodb"
+
+networks:
+  production-network:
+    driver: bridge

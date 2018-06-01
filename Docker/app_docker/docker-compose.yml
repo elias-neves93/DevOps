@@ -1,10 +1,11 @@
 version: '3'
+
 services:
   nginx:
 #    build:
 #      dockerfile: ./nginx-app-book/Dockerfile
 #      context: .
-    image: eneves/nginx-book:1.0
+    image: eneves/nginx-app-book:1.0
     container_name: nginx
     ports:
       - "80:80"
@@ -21,11 +22,11 @@ services:
       - production-network
 
   app1:
-    build:
-      dockerfile: ./app/Dockerfile
-      context: .
+#    build:
+#      dockerfile: ./app/Dockerfile
+#      context: .
     image: eneves/app-book:2.0
-    container_name: application1
+    container_name: app1
     ports:
       - "3000"
     networks:
@@ -34,11 +35,11 @@ services:
       - "mongodb"
 
   app2:
-    build:
-      dockerfile: ./app/Dockerfile
-      context: .
+#    build:
+#      dockerfile: ./app/Dockerfile
+#      context: .
     image: eneves/app-book:2.0
-    container_name: application2
+    container_name: app2
     ports:
       - "3000"
     networks:
@@ -47,11 +48,11 @@ services:
       - "mongodb"
 
   app3:
-    build:
-      dockerfile: ./app/Dockerfile
-      context: .
+#    build:
+#      dockerfile: ./app/Dockerfile
+#      context: .
     image: eneves/app-book:2.0
-    container_name: application3
+    container_name: app3
     ports:
       - "3000"
     networks:

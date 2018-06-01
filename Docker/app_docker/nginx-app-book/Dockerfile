@@ -1,7 +1,7 @@
 FROM nginx:latest
 
 MAINTAINER Elias Neves
-COPY public/ /var/www/public
+COPY ./public/ /var/www/public
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN chmod 755 -R /var/www/public
 EXPOSE 80 443

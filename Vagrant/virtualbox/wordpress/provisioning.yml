@@ -41,6 +41,8 @@
         src: 'files/my.cnf'
         dest: '/etc/mysql/my.cnf'
       become: yes
+      notify:
+        - restart mysql
 
 - hosts: wordpress
   handlers:

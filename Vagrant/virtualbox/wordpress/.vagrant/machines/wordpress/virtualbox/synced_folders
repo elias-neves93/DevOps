@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/elias/Documentos/DevOps/Vagrant/virtualbox/wordpress","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/elias/Documents/DevOps/Vagrant/virtualbox/wordpress","disabled":false,"__vagrantfile":true}}}

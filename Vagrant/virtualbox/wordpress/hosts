@@ -1,5 +1,0 @@
-[database]
-172.17.177.42 ansible_user=vagrant ansible_ssh_private_key_file="/home/elias/Documentos/DevOps/Vagrant/virtualbox/wordpress/.vagrant/machines/mysql/virtualbox/private_key"
-
-[wordpress]
-172.17.177.40 ansible_user=vagrant ansible_ssh_private_key_file="/home/elias/Documentos/DevOps/Vagrant/virtualbox/wordpress/.vagrant/machines/wordpress/virtualbox/private_key"
